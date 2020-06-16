@@ -5,9 +5,7 @@ public class TicTacToe {
     private static char[][] field;
 
     public static void main(String[] args) {
-        String a = "2";
         boolean flag = false;
-        System.out.println(Integer.valueOf(a));
         field = new char[][]{
                 {'*', '-', '-', '-', '-', '-', '*'},
                 {'|', ' ', '|', ' ', '|', ' ', '|'},
@@ -82,10 +80,13 @@ public class TicTacToe {
             numbers = numbers.replace(character, "");
             print();
             flag = !flag;
-            if (string.length() == 0 || checkWin()) {
+            System.out.println(numbers.length());
+            if (numbers.length() == 0) {
+                System.out.println("Ничья");
                 break;
             }
-
+            if (checkWin())
+                break;
         }
     }
 
@@ -142,12 +143,12 @@ public class TicTacToe {
                     gorizonCount--;
                 }
                 if (gorizonCount == 2) {
-                    j = 1;
-                    while (j <= 5) {
-                        if (field[i][j] != 'X') {
-                            return switcher(i, j);
+                    int one = 1;
+                    while (one <= 5) {
+                        if (field[i][one] == ' ') {
+                            return switcher(i, one);
                         }
-                        j += 2;
+                        one += 2;
                     }
                 }
                 if (field[j][i] == 'X') {
@@ -156,12 +157,12 @@ public class TicTacToe {
                     verticalCount--;
                 }
                 if (verticalCount == 2) {
-                    j = 1;
-                    while (j <= 5) {
-                        if (field[j][i] != 'X') {
-                            return switcher(j, i);
+                    int one = 1;
+                    while (one <= 5) {
+                        if (field[one][i] == ' ') {
+                            return switcher(one, i);
                         }
-                        j += 2;
+                        one += 2;
                     }
                 }
             }
@@ -187,7 +188,7 @@ public class TicTacToe {
         }
         for (int i = 1; i <= 5; i += 2) {
             for (int j = 1; j <= 5; j += 2) {
-                if (field[i][i] == ' ') {
+                if (field[i][j] == ' ') {
                     return switcher(i, j);
                 }
             }
@@ -206,12 +207,12 @@ public class TicTacToe {
                     gorizonCount--;
                 }
                 if (gorizonCount == 2) {
-                    j = 1;
-                    while (j <= 5) {
-                        if (field[i][j] != '0') {
-                            return switcher(i, j);
+                    int one = 1;
+                    while (one <= 5) {
+                        if (field[i][one] == ' ') {
+                            return switcher(i, one);
                         }
-                        j += 2;
+                        one += 2;
                     }
                 }
                 if (field[j][i] == '0') {
@@ -220,12 +221,12 @@ public class TicTacToe {
                     verticalCount--;
                 }
                 if (verticalCount == 2) {
-                    j = 1;
-                    while (j <= 5) {
-                        if (field[j][i] != '0') {
-                            return switcher(j, i);
+                    int one = 1;
+                    while (one <= 5) {
+                        if (field[one][i] == ' ') {
+                            return switcher(one, i);
                         }
-                        j += 2;
+                        one += 2;
                     }
                 }
             }
@@ -233,13 +234,13 @@ public class TicTacToe {
             verticalCount = 0;
         }
         if (field[3][3] == '0') {
-            if (field[1][1] == '0') {
+            if (field[1][1] == '0' && field[5][5] != 'X') {
                 return "9";
-            } else if (field[1][5] == '0') {
+            } else if (field[1][5] == '0'&& field[5][1] != 'X') {
                 return "7";
-            } else if (field[5][1] == '0') {
+            } else if (field[5][1] == '0' && field[1][5] != 'X') {
                 return "3";
-            } else if (field[5][5] == '0') {
+            } else if (field[5][5] == '0' && field[1][1] != 'X') {
                 return "1";
             }
         }
