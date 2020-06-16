@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -5,7 +6,8 @@ public class TicTacToe {
     private static char[][] field;
 
     public static void main(String[] args) {
-        boolean flag = false;
+
+        boolean flag = true;
         field = new char[][]{
                 {'*', '-', '-', '-', '-', '-', '*'},
                 {'|', ' ', '|', ' ', '|', ' ', '|'},
@@ -39,7 +41,7 @@ public class TicTacToe {
                 }
             } else {
                 if (string.length() == 16) {
-                    if (character.matches("1|2|3|4|9|6|7|8")) {
+                    if (character.matches("1|2|3|4|9|6|7|8") || character == null) {
                         character = "5";
                     } else if (character.equals("5")) {
                         character = "9";
@@ -171,19 +173,16 @@ public class TicTacToe {
         }
         if (field[3][3] == 'X') {
             if (field[1][1] == 'X') {
+                if (field[5][5] =='0' && field[1][5] == ' ') {
+                    return "3";
+                }
                 return "8";
-            } else if (field[1][5] == 'X') {
+            } else if (field[1][5] == 'X' && field[5][1] == ' ') {
                 return "7";
-            } else if (field[5][1] == 'X') {
+            } else if (field[5][1] == 'X' && field[1][5] == ' ') {
                 return "3";
-            } else if (field[5][5] == 'X') {
+            } else if (field[5][5] == 'X' && field[5][1] == ' ') {
                 return "1";
-            }
-        }
-        if ((field[1][1] == 'X' && field[5][5] == 'X')
-                || (field[1][5] == 'X' && field[5][1] == 'X')) {
-            if (field[5][3] == ' ') {
-                return "8";
             }
         }
         for (int i = 1; i <= 5; i += 2) {
@@ -234,13 +233,13 @@ public class TicTacToe {
             verticalCount = 0;
         }
         if (field[3][3] == '0') {
-            if (field[1][1] == '0' && field[5][5] != 'X') {
+            if (field[1][1] == '0' && field[5][5] == ' ') {
                 return "9";
-            } else if (field[1][5] == '0'&& field[5][1] != 'X') {
+            } else if (field[1][5] == '0'&& field[5][1] == ' ') {
                 return "7";
-            } else if (field[5][1] == '0' && field[1][5] != 'X') {
+            } else if (field[5][1] == '0' && field[1][5] == ' ') {
                 return "3";
-            } else if (field[5][5] == '0' && field[1][1] != 'X') {
+            } else if (field[5][5] == '0' && field[1][1] == ' ') {
                 return "1";
             }
         }
