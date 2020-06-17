@@ -1,14 +1,14 @@
 import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TicTacToe {
+public class TicTacToe extends JPanel{
     private static Scanner sc = new Scanner(System.in);
     private static char[][] field;
 
-    public static void main(String[] args) {
-
-        boolean flag = true;
-        field = new char[][]{
+    static {
+                field = new char[][]{
                 {'*', '-', '-', '-', '-', '-', '*'},
                 {'|', ' ', '|', ' ', '|', ' ', '|'},
                 {'|', '-', '+', '-', '+', '-', '|'},
@@ -17,6 +17,10 @@ public class TicTacToe {
                 {'|', ' ', '|', ' ', '|', ' ', '|'},
                 {'*', '-', '-', '-', '-', '-', '*'}
         };
+    }
+
+    public static void main(String[] args) {
+        boolean flag = true;
         print();
         String character = null;
         String numbers = "123456789";
@@ -278,5 +282,4 @@ public class TicTacToe {
                 }
         }
     }
-
 }
