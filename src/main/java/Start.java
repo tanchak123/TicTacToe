@@ -11,15 +11,10 @@ public class Start {
         window.add(new TicTacToeSwing());
         window.setVisible(true);
         window.setResizable(false);
+
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Start::new);
-//        SwingUtilities.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                new Start();
-//            }
-//        });
     }
 }
