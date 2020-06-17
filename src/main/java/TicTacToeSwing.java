@@ -185,7 +185,7 @@ public class TicTacToeSwing extends JPanel {
                             if (buttons.get(j).getText().equals("")) {
                                 return j;
                             }
-                            j += 3;
+                            j ++;
                         }
                     }
                 }
@@ -234,7 +234,7 @@ public class TicTacToeSwing extends JPanel {
                             if (buttons.get(j).getText().equals("")) {
                                 return j;
                             }
-                            j += 3;
+                            j ++;
                         }
                     }
                 }
@@ -257,8 +257,8 @@ public class TicTacToeSwing extends JPanel {
                 }
             }
             if (buttons.get(4).getText().equals("X")) {
-                if (buttons.get(0).getText().equals("X") && buttons.get(8).getText().equals("")) {
-                    return 8;
+                if (buttons.get(0).getText().equals("X")) {
+                    return 6;
                 } else if (buttons.get(8).getText().equals("X") && buttons.get(0).getText().equals("")) {
                     return 0;
                 } else if (buttons.get(6).getText().equals("X") && buttons.get(2).getText().equals("")) {
