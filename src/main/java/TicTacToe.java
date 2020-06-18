@@ -1,12 +1,14 @@
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JPanel;
 
-public class TicTacToe extends JPanel {
+public class TicTacToe extends JPanel{
     private static Scanner sc = new Scanner(System.in);
     private static char[][] field;
 
     static {
-        field = new char[][]{
+                field = new char[][]{
                 {'*', '-', '-', '-', '-', '-', '*'},
                 {'|', ' ', '|', ' ', '|', ' ', '|'},
                 {'|', '-', '+', '-', '+', '-', '|'},
@@ -89,9 +91,8 @@ public class TicTacToe extends JPanel {
                 System.out.println("Ничья");
                 break;
             }
-            if (checkWin()) {
+            if (checkWin())
                 break;
-            }
         }
     }
 
@@ -174,10 +175,9 @@ public class TicTacToe extends JPanel {
             gorizonCount = 0;
             verticalCount = 0;
         }
-
         if (field[3][3] == 'X') {
             if (field[1][1] == 'X') {
-                if (field[5][5] == '0' && field[1][5] == ' ') {
+                if (field[5][5] =='0' && field[1][5] == ' ') {
                     return "3";
                 }
                 return "8";
@@ -239,7 +239,7 @@ public class TicTacToe extends JPanel {
         if (field[3][3] == '0') {
             if (field[1][1] == '0' && field[5][5] == ' ') {
                 return "9";
-            } else if (field[1][5] == '0' && field[5][1] == ' ') {
+            } else if (field[1][5] == '0'&& field[5][1] == ' ') {
                 return "7";
             } else if (field[5][1] == '0' && field[1][5] == ' ') {
                 return "3";
