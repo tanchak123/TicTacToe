@@ -1,1 +1,1 @@
-"# TicTacToe" 
+"# TicTacToe with invincible artificial intelligence"  
