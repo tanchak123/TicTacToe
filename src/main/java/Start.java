@@ -1,11 +1,10 @@
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 public class Start {
     private JFrame window;
 
     public Start() {
-        this.window = new JFrame("TicTacToe");
+        this.window = new JFrame("Calculator");
         window.setSize(337, 360);
         window.setLocationRelativeTo(null);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
